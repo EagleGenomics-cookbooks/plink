@@ -16,3 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+include_recipe 'apt' if node['platform_family'] == 'debian'
+
+package 'plink'
+
+# apt installs plink to /usr/lib/plink/plink
+# TODO: install from source instead.

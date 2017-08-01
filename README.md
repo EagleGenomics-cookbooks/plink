@@ -1,2 +1,4 @@
 # plink
-Chef cookbook to install PLINK
+
+TODO: Enter the cookbook description here.
+
