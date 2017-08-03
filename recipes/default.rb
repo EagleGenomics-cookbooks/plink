@@ -18,7 +18,51 @@
 
 include_recipe 'apt' if node['platform_family'] == 'debian'
 
-package 'plink'
+package 'unzip'
 
-# apt installs plink to /usr/lib/plink/plink
-# TODO: install from source instead.
+plink_zip = 'plink_linux_x86_64.zip'
+
+remote_file "#{Chef::Config[:file_cache_path]}/#{plink_zip}" do
+  source "https://www.cog-genomics.org/static/bin/plink170725/#{plink_zip}"
+  action :create
+end
+
+execute 'unzip plink' do
+  command "unzip -o #{plink_zip} -d /usr/local/lib/plink"
+  cwd "#{Chef::Config[:file_cache_path]}/"
+end
+
+link '/usr/local/bin/plink' do
+  to '/usr/local/lib/plink/plink'
+  link_type :symbolic
+end
+
+link '/usr/local/bin/prettify' do
+  to '/usr/local/lib/plink/prettify'
+  link_type :symbolic
+end
+
+# can't get source to compile
+# include_recipe 'git'
+
+# include_recipe 'build-essential'
+
+# git "#{Chef::Config[:file_cache_path]}/plink" do
+#   repository node[:plink][:git_repository]
+#   revision node[:plink][:git_revision]
+#   action :sync
+# end
+
+# g++-multilib
+# libopenblas-dev
+
+# # set up more de
+# execute 'plink_first_compile' do
+#   command './plink_first_compile'
+#   cwd "#{Chef::Config[:file_cache_path]}/plink/1.9"
+# end
+
+# execute 'make plink' do
+#   command 'make plink'
+#   cwd "#{Chef::Config[:file_cache_path]}/plink/1.9"
+# end
