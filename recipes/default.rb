@@ -42,6 +42,10 @@ link '/usr/local/bin/prettify' do
   link_type :symbolic
 end
 
+magic_shell_environment 'PLINK_VERSION' do
+  value node['plink']['version']
+end
+
 # can't get source to compile
 # include_recipe 'git'
 
