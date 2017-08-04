@@ -2,6 +2,8 @@
 driver:
   name: docker
   use_sudo: false
+  customize:
+    memory 1048
 
 provisioner:
   name: chef_zero
