@@ -1,12 +1,13 @@
+plink_version = 'PLINK v1.90b4.6 64-bit (14 Aug 2017)'
 
 # Check that plink executable is in the path
 describe command('plink --version | xargs echo -n') do
   its('exit_status') { should eq 0 }
-  its('stdout') { should match('PLINK v1.90b4.5 64-bit (25 Jul 2017)') }
+  its('stdout') { should match(plink_version) }
 end
 
 describe os_env('PLINK_VERSION') do
-  its('content') { should eq 'v1.90b4.5' }
+  its('content') { should match(plink_version) }
 end
 
 # Check that plink works -  comes with a test data set!

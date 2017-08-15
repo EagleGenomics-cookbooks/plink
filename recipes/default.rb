@@ -23,7 +23,7 @@ package 'unzip'
 plink_zip = 'plink_linux_x86_64.zip'
 
 remote_file "#{Chef::Config[:file_cache_path]}/#{plink_zip}" do
-  source "https://www.cog-genomics.org/static/bin/plink170725/#{plink_zip}"
+  source "https://www.cog-genomics.org/static/bin/plink170814/#{plink_zip}"
   action :create
 end
 
@@ -43,7 +43,7 @@ link '/usr/local/bin/prettify' do
 end
 
 magic_shell_environment 'PLINK_VERSION' do
-  value node['plink']['version']
+  value '`plink --version | xargs echo -n`'
 end
 
 # can't get source to compile
