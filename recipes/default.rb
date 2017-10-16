@@ -23,7 +23,7 @@ package 'unzip'
 plink_zip = 'plink_linux_x86_64.zip'
 
 remote_file "#{Chef::Config[:file_cache_path]}/#{plink_zip}" do
-  source "https://www.cog-genomics.org/static/bin/plink171007/#{plink_zip}"
+  source "https://www.cog-genomics.org/static/bin/plink171013/#{plink_zip}"
   action :create
 end
 
