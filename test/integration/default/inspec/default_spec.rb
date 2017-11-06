@@ -1,4 +1,4 @@
-plink_version = 'PLINK v1.90b4.9 64-bit (13 Oct 2017)'
+plink_version = 'PLINK v1.90b4.10 64-bit (3 Nov 2017)'
 
 # Check that plink executable is in the path
 describe command('plink --version | xargs echo -n') do
