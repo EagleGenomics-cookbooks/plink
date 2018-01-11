@@ -2,7 +2,7 @@
 # Cookbook:: plink
 # Recipe:: default
 #
-# Copyright:: 2017, The Authors
+# Copyright:: 2018, Eagle Genomics
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ package 'unzip'
 plink_zip = 'plink_linux_x86_64.zip'
 
 remote_file "#{Chef::Config[:file_cache_path]}/#{plink_zip}" do
-  source "https://www.cog-genomics.org/static/bin/plink171220/#{plink_zip}"
+  source "https://www.cog-genomics.org/static/bin/plink180109/#{plink_zip}"
   action :create
 end
 

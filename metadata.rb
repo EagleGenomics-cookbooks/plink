@@ -1,10 +1,10 @@
 name 'plink'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
+maintainer 'Eagle Genomics Ltd'
+maintainer_email 'info@eaglegenomics.com'
 license 'Apache-2.0'
 description 'Installs/Configures plink'
 long_description 'Installs/Configures plink'
-version '0.1.12'
+version '0.1.13'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
